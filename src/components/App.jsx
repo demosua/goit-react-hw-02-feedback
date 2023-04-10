@@ -1,13 +1,9 @@
 import Counter from './Feedback';
-// import Statistics from './Statistics';
-// import FeedbackOptions from './FeedbackOptions';
-
+import { Container } from './App.styled';
 export const App = () => {
   return (
-    <>
+    <Container>
     <Counter  />
-      {/*  
-      <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={''}></FeedbackOptions> */}
-    </>
+    </Container>
   );
 };
