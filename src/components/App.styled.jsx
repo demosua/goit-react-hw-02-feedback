@@ -13,7 +13,7 @@ padding: 20px;
   margin-bottom: 20px;
 }
 
-& li:not(:first-child){
+& li:not(:first-of-type){
     margin-left: 10px;
   }
 

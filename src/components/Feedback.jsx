@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
 import Notification from './Notification';
+import Section from './Section';
 
 class Counter extends Component {
   state = {
@@ -36,14 +37,15 @@ class Counter extends Component {
 
     return (
       <>
-        {/* <Section title=""></Section> Розібратись з секцією */}
-        <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleClick}></FeedbackOptions>
-        {totalFeedbacks === 0 && (
-          <Notification message ="There is no feedback" />
-        )}
-        {totalFeedbacks > 0 && (
-          <Statistics good={good} neutral={neutral} bad={bad} total={totalFeedbacks} positivePercentage={positiveFeedbacks}></Statistics>
-        )}
+        <Section title="Please leave feedback">
+        <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleClick} />
+        </Section>
+        {totalFeedbacks > 0
+        ? (<Section title="Statistics">
+          <Statistics good={good} neutral={neutral} bad={bad} total={totalFeedbacks} positivePercentage={positiveFeedbacks} />
+          </Section>)
+        : (<Notification message ="There is no feedback" />)
+        }
       </>
       )
   }
